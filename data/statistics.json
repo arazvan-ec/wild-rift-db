@@ -1,0 +1,58 @@
+{
+  "totalChampions": 3,
+  "totalCombos": 5,
+  "averageCombosPerChampion": "1.67",
+  "championsWithCombos": 3,
+  "averageComboScore": "0.706",
+  "combosByDifficulty": {
+    "easy": 0,
+    "medium": 0,
+    "hard": 0,
+    "extreme": 0
+  },
+  "combosByTag": {
+    "kite": 1,
+    "laning": 2,
+    "safe": 1,
+    "burst": 2,
+    "teamfight": 3,
+    "cc": 2,
+    "chase": 1,
+    "escape": 1,
+    "jungle": 2,
+    "gank": 1,
+    "playmaking": 1
+  },
+  "topCombos": [
+    {
+      "name": "Kite and Burst",
+      "champion": "Ahri",
+      "score": "0.810",
+      "difficulty": "easy"
+    },
+    {
+      "name": "Full Charm Combo",
+      "champion": "Ahri",
+      "score": "0.805",
+      "difficulty": "medium"
+    },
+    {
+      "name": "Ultimate Chase",
+      "champion": "Ahri",
+      "score": "0.748",
+      "difficulty": "medium"
+    },
+    {
+      "name": "Spear Hunt Combo",
+      "champion": "Nidalee",
+      "score": "0.705",
+      "difficulty": "hard"
+    },
+    {
+      "name": "Insec Kick",
+      "champion": "Lee Sin",
+      "score": "0.460",
+      "difficulty": "extreme"
+    }
+  ]
+}
