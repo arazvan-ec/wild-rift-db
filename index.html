@@ -185,7 +185,7 @@
             // Actualizar stats
             document.getElementById('totalChampions').textContent = statistics.totalChampions || 0;
             document.getElementById('totalCombos').textContent = statistics.totalCombos || 0;
-            document.getElementById('avgComboScore').textContent = (statistics.averageComboScore || 0).toFixed(2);
+            document.getElementById('avgComboScore').textContent = (Number(statistics.averageComboScore) || 0).toFixed(2);
             document.getElementById('championsWithCombos').textContent = statistics.championsWithCombos || 0;
 
             // Renderizar campeones
