@@ -1,0 +1,239 @@
+{
+  "id": "nidalee",
+  "name": "Nidalee",
+  "title": "The Bestial Huntress",
+  "description": "A jungler with powerful ganking potential and hunting mechanics",
+  "roles": [
+    "Assassin",
+    "Mage",
+    "Jungle"
+  ],
+  "difficulty": "Hard",
+  "stats": {
+    "health": 570,
+    "mana": 375,
+    "armor": 21,
+    "spellResist": 30,
+    "attackDamage": 54,
+    "attackSpeed": 0.625,
+    "movementSpeed": 335,
+    "attackRange": 525
+  },
+  "abilities": {
+    "p": {
+      "key": "P",
+      "name": "Prowl",
+      "description": "Nidalee gains movement speed when moving through brush",
+      "cooldown": 0,
+      "cost": 0
+    },
+    "q": {
+      "key": "Q",
+      "name": "Javelin Toss / Takedown",
+      "description": "Nidalee throws a javelin that damages enemies. In cougar form, she pounces for melee damage.",
+      "cooldown": 6,
+      "cost": 50,
+      "range": 1500,
+      "damage": "Magic"
+    },
+    "w": {
+      "key": "W",
+      "name": "Bushwhack / Pounce",
+      "description": "Nidalee sets a trap that reveals enemies. In cougar form, she pounces to a location.",
+      "cooldown": 10,
+      "cost": 60,
+      "range": 900,
+      "damage": "Magic"
+    },
+    "e": {
+      "key": "E",
+      "name": "Pounce / Swipe",
+      "description": "Nidalee hunts enemies. In cougar form, she swipes nearby enemies.",
+      "cooldown": 5,
+      "cost": 50,
+      "range": 750,
+      "damage": "Magic"
+    },
+    "r": {
+      "key": "R",
+      "name": "Aspect of the Cougar",
+      "description": "Nidalee transforms into a cougar, gaining new abilities and movement speed.",
+      "cooldown": 3,
+      "cost": 0,
+      "range": 0,
+      "damage": "None"
+    }
+  },
+  "builds": {
+    "AP Burst": {
+      "name": "AP Burst",
+      "items": [
+        "Ludens Echo",
+        "Rabadons Deathcap",
+        "Void Staff"
+      ],
+      "sources": [
+        "Manus"
+      ]
+    }
+  },
+  "combos": [
+    {
+      "name": "Spear Hunt Combo",
+      "description": "Lanzar lanza desde lejos y perseguir con forma de gato",
+      "abilities": [
+        "Q",
+        "R",
+        "Q",
+        "E"
+      ],
+      "difficulty": "Hard",
+      "damageOutput": 950
+    }
+  ],
+  "matchups": {
+    "favorable": [
+      "Amumu",
+      "Warwick",
+      "Rammus"
+    ],
+    "unfavorable": [
+      "Lee Sin",
+      "Graves",
+      "KhaZix"
+    ]
+  },
+  "tips": [
+    "Land your spears for maximum damage",
+    "Use cougar form for mobility and chase",
+    "Trap placement is crucial for vision control",
+    "Hunt isolated enemies for easy kills"
+  ],
+  "source": "Manus Provider",
+  "lastUpdated": "2025-12-26T01:24:30.493Z",
+  "primarySource": "Manus",
+  "sources": [
+    "Manus"
+  ],
+  "dataFromProviders": {
+    "Manus": {
+      "id": "nidalee",
+      "name": "Nidalee",
+      "title": "The Bestial Huntress",
+      "description": "A jungler with powerful ganking potential and hunting mechanics",
+      "roles": [
+        "Assassin",
+        "Mage",
+        "Jungle"
+      ],
+      "difficulty": "Hard",
+      "stats": {
+        "health": 570,
+        "mana": 375,
+        "armor": 21,
+        "spellResist": 30,
+        "attackDamage": 54,
+        "attackSpeed": 0.625,
+        "movementSpeed": 335,
+        "attackRange": 525
+      },
+      "abilities": {
+        "p": {
+          "key": "P",
+          "name": "Prowl",
+          "description": "Nidalee gains movement speed when moving through brush",
+          "cooldown": 0,
+          "cost": 0
+        },
+        "q": {
+          "key": "Q",
+          "name": "Javelin Toss / Takedown",
+          "description": "Nidalee throws a javelin that damages enemies. In cougar form, she pounces for melee damage.",
+          "cooldown": 6,
+          "cost": 50,
+          "range": 1500,
+          "damage": "Magic"
+        },
+        "w": {
+          "key": "W",
+          "name": "Bushwhack / Pounce",
+          "description": "Nidalee sets a trap that reveals enemies. In cougar form, she pounces to a location.",
+          "cooldown": 10,
+          "cost": 60,
+          "range": 900,
+          "damage": "Magic"
+        },
+        "e": {
+          "key": "E",
+          "name": "Pounce / Swipe",
+          "description": "Nidalee hunts enemies. In cougar form, she swipes nearby enemies.",
+          "cooldown": 5,
+          "cost": 50,
+          "range": 750,
+          "damage": "Magic"
+        },
+        "r": {
+          "key": "R",
+          "name": "Aspect of the Cougar",
+          "description": "Nidalee transforms into a cougar, gaining new abilities and movement speed.",
+          "cooldown": 3,
+          "cost": 0,
+          "range": 0,
+          "damage": "None"
+        }
+      },
+      "builds": {
+        "standard": {
+          "name": "AP Burst",
+          "items": [
+            "Ludens Echo",
+            "Rabadons Deathcap",
+            "Void Staff"
+          ],
+          "boots": "Sorcerers Shoes",
+          "description": "Maximum damage output with spear hunting"
+        }
+      },
+      "combos": [
+        {
+          "name": "Spear Hunt Combo",
+          "description": "Lanzar lanza desde lejos y perseguir con forma de gato",
+          "abilities": [
+            "Q",
+            "R",
+            "Q",
+            "E"
+          ],
+          "difficulty": "Hard",
+          "damageOutput": 950
+        }
+      ],
+      "matchups": {
+        "favorable": [
+          "Amumu",
+          "Warwick",
+          "Rammus"
+        ],
+        "unfavorable": [
+          "Lee Sin",
+          "Graves",
+          "KhaZix"
+        ]
+      },
+      "tips": [
+        "Land your spears for maximum damage",
+        "Use cougar form for mobility and chase",
+        "Trap placement is crucial for vision control",
+        "Hunt isolated enemies for easy kills"
+      ],
+      "source": "Manus Provider",
+      "lastUpdated": "2025-12-26T01:24:30.493Z"
+    }
+  },
+  "metaStats": {
+    "sources": [
+      "Manus"
+    ],
+    "aggregatedAt": "2025-12-26T01:25:26.277Z"
+  }
+}

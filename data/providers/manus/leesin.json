@@ -1,0 +1,122 @@
+{
+  "id": "leesin",
+  "name": "Lee Sin",
+  "title": "The Blind Monk",
+  "description": "A versatile jungler with high mobility and playmaking potential",
+  "roles": [
+    "Fighter",
+    "Assassin",
+    "Jungle"
+  ],
+  "difficulty": "Hard",
+  "stats": {
+    "health": 570,
+    "mana": 200,
+    "armor": 24,
+    "spellResist": 30,
+    "attackDamage": 68,
+    "attackSpeed": 0.681,
+    "movementSpeed": 335,
+    "attackRange": 125
+  },
+  "abilities": {
+    "p": {
+      "key": "P",
+      "name": "Flurry",
+      "description": "Lee Sin gains attack speed after casting an ability",
+      "cooldown": 0,
+      "cost": 0
+    },
+    "q": {
+      "key": "Q",
+      "name": "Sonic Wave / Resonance",
+      "description": "Lee Sin throws a sonic wave that damages enemies. He can follow up to dash to them.",
+      "cooldown": 8,
+      "cost": 50,
+      "range": 1100,
+      "damage": "Physical"
+    },
+    "w": {
+      "key": "W",
+      "name": "Safeguard / Iron Will",
+      "description": "Lee Sin dashes to an ally or gains a shield",
+      "cooldown": 8,
+      "cost": 50,
+      "range": 685,
+      "damage": "None"
+    },
+    "e": {
+      "key": "E",
+      "name": "Tempest / Cripple",
+      "description": "Lee Sin sends out a shockwave that damages and slows enemies",
+      "cooldown": 8,
+      "cost": 50,
+      "range": 325,
+      "damage": "Physical"
+    },
+    "r": {
+      "key": "R",
+      "name": "Dragons Rage",
+      "description": "Lee Sin performs a powerful kick that damages and knocks back an enemy",
+      "cooldown": 120,
+      "cost": 0,
+      "range": 375,
+      "damage": "Physical"
+    }
+  },
+  "builds": {
+    "standard": {
+      "name": "Bruiser Build",
+      "items": [
+        "Black Cleaver",
+        "Trinity Force",
+        "Steraks Gage"
+      ],
+      "boots": "Plated Steelcaps",
+      "description": "Balance between damage and tankiness"
+    },
+    "assassin": {
+      "name": "Assassin Build",
+      "items": [
+        "Duskblade of Draktharr",
+        "Seryldas Grudge",
+        "Marakana"
+      ],
+      "boots": "Ionian Boots of Lucidity",
+      "description": "High burst damage for one-shot potential"
+    }
+  },
+  "combos": [
+    {
+      "name": "Insec Kick",
+      "description": "Combo clásico: Q, seguir, R para patear al enemigo hacia atrás",
+      "abilities": [
+        "Q",
+        "Q",
+        "R"
+      ],
+      "difficulty": "Extreme",
+      "damageOutput": 500
+    }
+  ],
+  "matchups": {
+    "favorable": [
+      "Amumu",
+      "Warwick",
+      "Gragas"
+    ],
+    "unfavorable": [
+      "Nidalee",
+      "Graves",
+      "Kindred"
+    ]
+  },
+  "tips": [
+    "Master the Insec kick for playmaking",
+    "Use Q to scout and engage",
+    "Your W can save teammates - use it wisely",
+    "Early ganks are crucial for snowballing"
+  ],
+  "source": "Manus Provider",
+  "lastUpdated": "2025-12-26T01:24:30.493Z"
+}

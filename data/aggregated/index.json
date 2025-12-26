@@ -1,0 +1,48 @@
+{
+  "totalChampions": 3,
+  "providers": [
+    "Manus",
+    "WildRiftFire"
+  ],
+  "champions": [
+    {
+      "id": "ahri",
+      "name": "Ahri",
+      "title": "The Nine-Tailed Fox",
+      "roles": [
+        "Mage",
+        "Support"
+      ],
+      "sources": [
+        "Manus"
+      ]
+    },
+    {
+      "id": "leesin",
+      "name": "Lee Sin",
+      "title": "The Blind Monk",
+      "roles": [
+        "Fighter",
+        "Assassin",
+        "Jungle"
+      ],
+      "sources": [
+        "Manus"
+      ]
+    },
+    {
+      "id": "nidalee",
+      "name": "Nidalee",
+      "title": "The Bestial Huntress",
+      "roles": [
+        "Assassin",
+        "Mage",
+        "Jungle"
+      ],
+      "sources": [
+        "Manus"
+      ]
+    }
+  ],
+  "aggregatedAt": "2025-12-26T01:25:26.278Z"
+}

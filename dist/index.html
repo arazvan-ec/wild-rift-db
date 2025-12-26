@@ -182,35 +182,37 @@
             }
 
             container.innerHTML = champions.map(champion => `
-                <div class="champion-card">
-                    <div class="champion-header">
-                        <div class="champion-name">${champion.name}</div>
-                        <div class="champion-title">${champion.title}</div>
-                        <div class="champion-roles">
-                            ${(champion.roles || []).map(role => 
-                                `<div class="role-badge">${role}</div>`
-                            ).join('')}
+                <a href="champion-detail.html?id=${champion.id}" style="text-decoration: none; color: inherit;">
+                    <div class="champion-card">
+                        <div class="champion-header">
+                            <div class="champion-name">${champion.name}</div>
+                            <div class="champion-title">${champion.title}</div>
+                            <div class="champion-roles">
+                                ${(champion.roles || []).map(role => 
+                                    `<div class="role-badge">${role}</div>`
+                                ).join('')}
+                            </div>
                         </div>
-                    </div>
-                    <div class="champion-body">
-                        <div class="combo-count">
-                            <strong>${champion.combos?.length || 0}</strong> combos disponibles
-                        </div>
-                        <div class="combo-list">
-                            ${(champion.combos || []).slice(0, 3).map(combo => `
-                                <div class="combo-item">
-                                    <div class="combo-name">${combo.name}</div>
-                                    <div class="combo-meta">
-                                        <span class="difficulty-badge difficulty-${combo.effectiveness?.difficulty || 'medium'}">
-                                            ${combo.effectiveness?.difficulty || 'N/A'}
-                                        </span>
-                                        <span>⚡ ${combo.effectiveness?.damageOutput || 0}</span>
+                        <div class="champion-body">
+                            <div class="combo-count">
+                                <strong>${champion.combos?.length || 0}</strong> combos disponibles
+                            </div>
+                            <div class="combo-list">
+                                ${(champion.combos || []).slice(0, 3).map(combo => `
+                                    <div class="combo-item">
+                                        <div class="combo-name">${combo.name}</div>
+                                        <div class="combo-meta">
+                                            <span class="difficulty-badge difficulty-${combo.effectiveness?.difficulty || 'medium'}">
+                                                ${combo.effectiveness?.difficulty || 'N/A'}
+                                            </span>
+                                            <span>⚡ ${combo.effectiveness?.damageOutput || 0}</span>
+                                        </div>
                                     </div>
-                                </div>
-                            `).join('')}
+                                `).join('')}
+                            </div>
                         </div>
                     </div>
-                </div>
+                </a>
             `).join('');
         }
 
