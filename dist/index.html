@@ -623,9 +623,10 @@
         // Cargar datos
         async function loadData() {
             try {
-                const champResponse = await fetch('data/champions.json');
-                const combosResponse = await fetch('data/combos.json');
-                const statsResponse = await fetch('data/statistics.json');
+                const baseUrl = window.location.pathname.includes('/wild-rift-db/') ? '/wild-rift-db/' : '/';
+                const champResponse = await fetch(baseUrl + 'data/champions.json');
+                const combosResponse = await fetch(baseUrl + 'data/combos.json');
+                const statsResponse = await fetch(baseUrl + 'data/statistics.json');
 
                 allChampions = await champResponse.json();
                 allCombos = await combosResponse.json();
