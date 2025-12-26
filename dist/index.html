@@ -166,24 +166,47 @@
     </div>
 
     <script>
-        // Datos embebidos directamente en el HTML
-        const appData = {
-            champions: [],
-            combos: [],
-            stats: {}
-        };
+        // DATOS EMBEBIDOS - Se cargarán desde archivos JSON
+        let allChampions = [];
+        let allCombos = [];
+        let statistics = {};
+
+        async function loadData() {
+            try {
+                const baseUrl = '/wild-rift-db/';
+                const [champRes, combosRes, statsRes] = await Promise.all([
+                    fetch(baseUrl + 'data/champions.json'),
+                    fetch(baseUrl + 'data/combos.json'),
+                    fetch(baseUrl + 'data/statistics.json')
+                ]);
+
+                if (!champRes.ok || !combosRes.ok || !statsRes.ok) {
+                    throw new Error('Uno o más archivos no se encontraron');
+                }
+
+                allChampions = await champRes.json();
+                allCombos = await combosRes.json();
+                statistics = await statsRes.json();
+
+                init();
+            } catch (err) {
+                console.error('Error cargando datos:', err);
+                document.getElementById('championsContainer').innerHTML = 
+                    '<div class="no-results">Error al cargar los datos. Intenta recargar la página.</div>';
+            }
+        }
 
         function init() {
-            console.log('Inicializando aplicación...');
+            console.log('✓ Inicializando con', allChampions.length, 'campeones');
             
             // Actualizar stats
-            document.getElementById('totalChampions').textContent = appData.stats.totalChampions || 0;
-            document.getElementById('totalCombos').textContent = appData.stats.totalCombos || 0;
-            document.getElementById('avgComboScore').textContent = (appData.stats.averageComboScore || 0).toFixed(2);
-            document.getElementById('championsWithCombos').textContent = appData.stats.championsWithCombos || 0;
+            document.getElementById('totalChampions').textContent = statistics.totalChampions || 0;
+            document.getElementById('totalCombos').textContent = statistics.totalCombos || 0;
+            document.getElementById('avgComboScore').textContent = (statistics.averageComboScore || 0).toFixed(2);
+            document.getElementById('championsWithCombos').textContent = statistics.championsWithCombos || 0;
 
             // Renderizar campeones
-            renderChampions(appData.champions);
+            renderChampions(allChampions);
 
             // Event listeners
             document.getElementById('searchInput').addEventListener('input', filterChampions);
@@ -237,7 +260,7 @@
             const difficulty = document.getElementById('difficultyFilter').value;
             const role = document.getElementById('roleFilter').value;
 
-            let filtered = appData.champions.filter(champion => {
+            let filtered = allChampions.filter(champion => {
                 const matchSearch = champion.name.toLowerCase().includes(search);
                 const matchDifficulty = !difficulty || 
                     (champion.combos || []).some(c => c.effectiveness?.difficulty === difficulty);
@@ -249,34 +272,8 @@
             renderChampions(filtered);
         }
 
-        // Cargar datos
-        function loadData() {
-            fetch('data/champions.json')
-                .then(r => r.json())
-                .then(data => {
-                    appData.champions = data;
-                    return fetch('data/combos.json');
-                })
-                .then(r => r.json())
-                .then(data => {
-                    appData.combos = data;
-                    return fetch('data/statistics.json');
-                })
-                .then(r => r.json())
-                .then(data => {
-                    appData.stats = data;
-                    init();
-                })
-                .catch(err => {
-                    console.error('Error cargando datos:', err);
-                    document.getElementById('championsContainer').innerHTML = 
-                        '<div class="no-results">Error al cargar los datos. Recargando página...</div>';
-                    setTimeout(() => location.reload(), 2000);
-                });
-        }
-
-        // Iniciar cuando el DOM esté listo
-        document.addEventListener('DOMContentLoaded', loadData);
+        // Cargar datos al iniciar
+        loadData();
     </script>
 </body>
 </html>
