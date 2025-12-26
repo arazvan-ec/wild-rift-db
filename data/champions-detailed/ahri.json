@@ -1,0 +1,282 @@
+{
+  "id": "ahri",
+  "name": "Ahri",
+  "title": "The Nine-Tailed Fox",
+  "description": "A mage with powerful crowd control abilities and mobility",
+  "roles": [
+    "Mage",
+    "Support"
+  ],
+  "difficulty": "Medium",
+  "stats": {
+    "health": 526,
+    "mana": 418,
+    "armor": 18.72,
+    "spellResist": 30,
+    "attackDamage": 53.04,
+    "attackSpeed": 0.668,
+    "movementSpeed": 330,
+    "attackRange": 550
+  },
+  "abilities": {
+    "p": {
+      "key": "P",
+      "name": "Essence Theft",
+      "description": "Ahri gains a stack of Essence Theft whenever she hits an enemy with an ability. At 3 stacks, she consumes them to heal.",
+      "cooldown": 0,
+      "cost": 0
+    },
+    "q": {
+      "key": "Q",
+      "name": "Orb of Deception",
+      "description": "Ahri throws an orb that damages enemies on the way out and heals her on the way back.",
+      "cooldown": 7,
+      "cost": 50,
+      "range": 880,
+      "damage": "Magic"
+    },
+    "w": {
+      "key": "W",
+      "name": "Fox-Fire",
+      "description": "Ahri releases fox-fire that damages nearby enemies.",
+      "cooldown": 7,
+      "cost": 50,
+      "range": 550,
+      "damage": "Magic"
+    },
+    "e": {
+      "key": "E",
+      "name": "Charm",
+      "description": "Ahri blows a kiss that charms an enemy, slowing and making them vulnerable.",
+      "cooldown": 12,
+      "cost": 50,
+      "range": 975,
+      "damage": "Magic"
+    },
+    "r": {
+      "key": "R",
+      "name": "Spirit Rush",
+      "description": "Ahri dashes forward and releases fox-fire at nearby enemies.",
+      "cooldown": 130,
+      "cost": 100,
+      "range": 550,
+      "damage": "Magic"
+    }
+  },
+  "builds": {
+    "Standard Build": {
+      "name": "Standard Build",
+      "items": [
+        "Ludens Echo",
+        "Rabadons Deathcap",
+        "Void Staff",
+        "Zhonyas Hourglass"
+      ],
+      "sources": [
+        "Manus"
+      ]
+    },
+    "Support Build": {
+      "name": "Support Build",
+      "items": [
+        "Hollow Radiance",
+        "Redemption",
+        "Locket of the Iron Solari"
+      ],
+      "sources": [
+        "Manus"
+      ]
+    }
+  },
+  "combos": [
+    {
+      "name": "Kite and Burst",
+      "description": "Combo para mantener distancia mientras se inflige daño",
+      "abilities": [
+        "Q",
+        "W",
+        "R"
+      ],
+      "difficulty": "Easy",
+      "damageOutput": 600
+    },
+    {
+      "name": "Full Charm Combo",
+      "description": "Combo de daño completo después de golpear Charm",
+      "abilities": [
+        "E",
+        "Q",
+        "W",
+        "R"
+      ],
+      "difficulty": "Medium",
+      "damageOutput": 850
+    }
+  ],
+  "matchups": {
+    "favorable": [
+      "Annie",
+      "Lux",
+      "Lissandra"
+    ],
+    "unfavorable": [
+      "Fizz",
+      "Kassadin",
+      "Katarina"
+    ]
+  },
+  "tips": [
+    "Use your Q to farm from distance",
+    "Charm is your main CC tool - use it wisely",
+    "Your R can be used for both offense and escape",
+    "Group with your team for maximum impact"
+  ],
+  "source": "Manus Provider",
+  "lastUpdated": "2025-12-26T01:24:30.493Z",
+  "primarySource": "Manus",
+  "sources": [
+    "Manus"
+  ],
+  "dataFromProviders": {
+    "Manus": {
+      "id": "ahri",
+      "name": "Ahri",
+      "title": "The Nine-Tailed Fox",
+      "description": "A mage with powerful crowd control abilities and mobility",
+      "roles": [
+        "Mage",
+        "Support"
+      ],
+      "difficulty": "Medium",
+      "stats": {
+        "health": 526,
+        "mana": 418,
+        "armor": 18.72,
+        "spellResist": 30,
+        "attackDamage": 53.04,
+        "attackSpeed": 0.668,
+        "movementSpeed": 330,
+        "attackRange": 550
+      },
+      "abilities": {
+        "p": {
+          "key": "P",
+          "name": "Essence Theft",
+          "description": "Ahri gains a stack of Essence Theft whenever she hits an enemy with an ability. At 3 stacks, she consumes them to heal.",
+          "cooldown": 0,
+          "cost": 0
+        },
+        "q": {
+          "key": "Q",
+          "name": "Orb of Deception",
+          "description": "Ahri throws an orb that damages enemies on the way out and heals her on the way back.",
+          "cooldown": 7,
+          "cost": 50,
+          "range": 880,
+          "damage": "Magic"
+        },
+        "w": {
+          "key": "W",
+          "name": "Fox-Fire",
+          "description": "Ahri releases fox-fire that damages nearby enemies.",
+          "cooldown": 7,
+          "cost": 50,
+          "range": 550,
+          "damage": "Magic"
+        },
+        "e": {
+          "key": "E",
+          "name": "Charm",
+          "description": "Ahri blows a kiss that charms an enemy, slowing and making them vulnerable.",
+          "cooldown": 12,
+          "cost": 50,
+          "range": 975,
+          "damage": "Magic"
+        },
+        "r": {
+          "key": "R",
+          "name": "Spirit Rush",
+          "description": "Ahri dashes forward and releases fox-fire at nearby enemies.",
+          "cooldown": 130,
+          "cost": 100,
+          "range": 550,
+          "damage": "Magic"
+        }
+      },
+      "builds": {
+        "standard": {
+          "name": "Standard Build",
+          "items": [
+            "Ludens Echo",
+            "Rabadons Deathcap",
+            "Void Staff",
+            "Zhonyas Hourglass"
+          ],
+          "boots": "Sorcerers Shoes",
+          "description": "High damage output with defensive utility"
+        },
+        "support": {
+          "name": "Support Build",
+          "items": [
+            "Hollow Radiance",
+            "Redemption",
+            "Locket of the Iron Solari"
+          ],
+          "boots": "Plated Steelcaps",
+          "description": "Focus on team utility and protection"
+        }
+      },
+      "combos": [
+        {
+          "name": "Kite and Burst",
+          "description": "Combo para mantener distancia mientras se inflige daño",
+          "abilities": [
+            "Q",
+            "W",
+            "R"
+          ],
+          "difficulty": "Easy",
+          "damageOutput": 600
+        },
+        {
+          "name": "Full Charm Combo",
+          "description": "Combo de daño completo después de golpear Charm",
+          "abilities": [
+            "E",
+            "Q",
+            "W",
+            "R"
+          ],
+          "difficulty": "Medium",
+          "damageOutput": 850
+        }
+      ],
+      "matchups": {
+        "favorable": [
+          "Annie",
+          "Lux",
+          "Lissandra"
+        ],
+        "unfavorable": [
+          "Fizz",
+          "Kassadin",
+          "Katarina"
+        ]
+      },
+      "tips": [
+        "Use your Q to farm from distance",
+        "Charm is your main CC tool - use it wisely",
+        "Your R can be used for both offense and escape",
+        "Group with your team for maximum impact"
+      ],
+      "source": "Manus Provider",
+      "lastUpdated": "2025-12-26T01:24:30.493Z"
+    }
+  },
+  "metaStats": {
+    "sources": [
+      "Manus"
+    ],
+    "aggregatedAt": "2025-12-26T01:25:26.277Z"
+  }
+}
