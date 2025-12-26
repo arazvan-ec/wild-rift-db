@@ -192,7 +192,7 @@
             } catch (err) {
                 console.error('Error cargando datos:', err);
                 document.getElementById('championsContainer').innerHTML = 
-                    '<div class="no-results">Error al cargar los datos. Intenta recargar la página.</div>';
+                    '<div class="no-results">❌ Error al cargar datos JSON desde /wild-rift-db/data/. Detalles: ' + err.message + '</div>';
             }
         }
 
@@ -277,4 +277,4 @@
     </script>
 </body>
 </html>
-timestamp=1766711126
+
