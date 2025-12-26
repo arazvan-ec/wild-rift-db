@@ -5,267 +5,240 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wild Rift Champion Database</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #0a1428 0%, #1a2332 100%);
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
             color: #e0e0e0;
-            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
         }
-        .container { max-width: 1400px; margin: 0 auto; padding: 20px; }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
         header {
-            background: linear-gradient(135deg, #0d47a1 0%, #1565c0 100%);
-            padding: 40px 20px;
-            border-radius: 10px;
-            margin-bottom: 30px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
             text-align: center;
+            margin-bottom: 40px;
+            padding: 30px 0;
+            border-bottom: 2px solid #00d4ff;
         }
-        h1 { font-size: 2.5em; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); }
-        .subtitle { font-size: 1.1em; opacity: 0.9; margin-bottom: 20px; }
-        .stats-grid {
+        
+        h1 {
+            font-size: 2.5em;
+            color: #00d4ff;
+            margin-bottom: 10px;
+            text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+        }
+        
+        .stats {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
-        }
-        .stat-card {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 15px;
-            border-radius: 8px;
-            border-left: 4px solid #00bcd4;
-        }
-        .stat-value { font-size: 1.8em; font-weight: bold; color: #00bcd4; }
-        .stat-label { font-size: 0.9em; opacity: 0.8; margin-top: 5px; }
-        .controls { display: flex; gap: 15px; margin-bottom: 30px; flex-wrap: wrap; }
-        input, select {
-            padding: 12px;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid #00bcd4;
-            border-radius: 5px;
-            color: #e0e0e0;
-            font-size: 1em;
-        }
-        input:focus, select:focus { outline: none; border-color: #00e5ff; box-shadow: 0 0 10px rgba(0, 229, 255, 0.3); }
-        .search-box { flex: 1; min-width: 250px; }
-        .champions-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 20px;
             margin-bottom: 40px;
         }
-        .champion-card {
-            background: linear-gradient(135deg, rgba(13, 71, 161, 0.3) 0%, rgba(21, 101, 192, 0.2) 100%);
-            border: 1px solid #00bcd4;
-            border-radius: 10px;
-            overflow: hidden;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
-        .champion-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 188, 212, 0.3);
-            border-color: #00e5ff;
-        }
-        .champion-header {
+        
+        .stat-card {
+            background: rgba(0, 212, 255, 0.1);
+            border: 2px solid #00d4ff;
+            border-radius: 8px;
             padding: 20px;
-            background: linear-gradient(135deg, #0d47a1 0%, #1565c0 100%);
-            border-bottom: 2px solid #00bcd4;
+            text-align: center;
         }
-        .champion-name { font-size: 1.5em; font-weight: bold; margin-bottom: 5px; }
-        .champion-title { font-size: 0.9em; opacity: 0.8; margin-bottom: 10px; }
-        .champion-roles { display: flex; gap: 5px; flex-wrap: wrap; }
-        .role-badge {
-            background: rgba(0, 188, 212, 0.3);
-            padding: 3px 8px;
-            border-radius: 3px;
-            font-size: 0.8em;
-            border: 1px solid #00bcd4;
+        
+        .stat-card h3 {
+            color: #00d4ff;
+            margin-bottom: 10px;
         }
-        .champion-body { padding: 20px; }
-        .combo-count { font-size: 1.2em; margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid rgba(0, 188, 212, 0.3); }
-        .combo-count strong { color: #00e5ff; }
-        .combo-list { display: flex; flex-direction: column; gap: 10px; }
-        .combo-item {
-            background: rgba(0, 188, 212, 0.1);
-            padding: 12px;
-            border-left: 3px solid #00bcd4;
-            border-radius: 3px;
+        
+        .stat-card p {
+            font-size: 1.5em;
+            color: #fff;
+        }
+        
+        .search-filter {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        input, select {
+            padding: 10px 15px;
+            background: rgba(0, 212, 255, 0.1);
+            border: 2px solid #00d4ff;
+            color: #e0e0e0;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        
+        input::placeholder {
+            color: #888;
+        }
+        
+        .champions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .champion-card {
+            background: rgba(0, 212, 255, 0.05);
+            border: 2px solid #00d4ff;
+            border-radius: 8px;
+            padding: 20px;
             cursor: pointer;
             transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
         }
-        .combo-item:hover {
-            background: rgba(0, 188, 212, 0.2);
-            border-left-color: #00e5ff;
+        
+        .champion-card:hover {
+            background: rgba(0, 212, 255, 0.15);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
         }
-        .combo-name { font-weight: bold; margin-bottom: 5px; color: #00e5ff; }
-        .combo-meta { display: flex; gap: 10px; font-size: 0.85em; opacity: 0.8; }
-        .difficulty-badge {
-            padding: 2px 6px;
-            border-radius: 3px;
-            font-weight: bold;
+        
+        .champion-card h3 {
+            color: #00d4ff;
+            margin-bottom: 5px;
         }
-        .difficulty-easy { background: #4caf50; color: white; }
-        .difficulty-medium { background: #ff9800; color: white; }
-        .difficulty-hard { background: #f44336; color: white; }
-        .difficulty-extreme { background: #9c27b0; color: white; }
-        .no-results { text-align: center; padding: 40px; color: #00bcd4; font-size: 1.2em; }
-        footer { text-align: center; padding: 20px; border-top: 1px solid rgba(0, 188, 212, 0.3); margin-top: 40px; opacity: 0.7; }
+        
+        .champion-card .title {
+            color: #888;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+        
+        .champion-card .roles {
+            color: #00d4ff;
+            font-size: 0.85em;
+            margin-bottom: 10px;
+        }
+        
+        .champion-card .difficulty {
+            color: #ff6b6b;
+            font-size: 0.85em;
+            margin-bottom: 10px;
+        }
+        
+        .champion-card .combos {
+            color: #888;
+            font-size: 0.85em;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            border-top: 2px solid #00d4ff;
+            color: #888;
+            margin-top: 40px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
             <h1>⚔️ Wild Rift Champion Database</h1>
-            <p class="subtitle">Análisis Completo de Campeones y Combos</p>
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-value" id="totalChampions">0</div>
-                    <div class="stat-label">Campeones</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-value" id="totalCombos">0</div>
-                    <div class="stat-label">Combos Analizados</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-value" id="avgComboScore">0.0</div>
-                    <div class="stat-label">Score Promedio</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-value" id="championsWithCombos">0</div>
-                    <div class="stat-label">Con Combos</div>
-                </div>
-            </div>
+            <p>Información completa de campeones, builds y combos</p>
         </header>
-
-        <div class="controls">
-            <div class="search-box">
-                <input type="search" id="searchInput" placeholder="🔍 Buscar campeón...">
-            </div>
-            <select id="difficultyFilter">
+        
+        <div class="stats" id="stats"></div>
+        
+        <div class="search-filter">
+            <input type="text" id="search" placeholder="Buscar campeón...">
+            <select id="difficulty">
                 <option value="">Todas las dificultades</option>
-                <option value="easy">Easy</option>
-                <option value="medium">Medium</option>
-                <option value="hard">Hard</option>
-                <option value="extreme">Extreme</option>
-            </select>
-            <select id="roleFilter">
-                <option value="">Todos los roles</option>
-                <option value="Mage">Mage</option>
-                <option value="Assassin">Assassin</option>
-                <option value="Fighter">Fighter</option>
-                <option value="Support">Support</option>
+                <option value="Easy">Easy</option>
+                <option value="Medium">Medium</option>
+                <option value="Hard">Hard</option>
+                <option value="Extreme">Extreme</option>
             </select>
         </div>
-
-        <div id="championsContainer" class="champions-grid"></div>
+        
+        <div class="champions-grid" id="champions"></div>
+        
         <footer>
-            <p>Wild Rift Champion Database v1.0 | © 2025</p>
+            <p>Wild Rift Champion Database v2.0 | Multi-Provider System | © 2025</p>
         </footer>
     </div>
-
+    
     <script>
-        // DATOS EMBEBIDOS - CARGADOS CORRECTAMENTE
-        const DATA = {
-            champions: [],
-            combos: [],
-            statistics: {}
-        };
-
-        function renderChampions(champions) {
-            const container = document.getElementById('championsContainer');
+        const CHAMPIONS_DATA = {"ahri": {"id": "ahri", "name": "Ahri", "title": "The Nine-Tailed Fox", "description": "A mage with powerful crowd control abilities and mobility", "roles": ["Mage", "Support"], "difficulty": "Medium", "stats": {"health": 526, "mana": 418, "armor": 18.72, "spellResist": 30, "attackDamage": 53.04, "attackSpeed": 0.668, "movementSpeed": 330, "attackRange": 550}, "abilities": {"p": {"key": "P", "name": "Essence Theft", "description": "Ahri gains a stack of Essence Theft whenever she hits an enemy with an ability. At 3 stacks, she consumes them to heal.", "cooldown": 0, "cost": 0}, "q": {"key": "Q", "name": "Orb of Deception", "description": "Ahri throws an orb that damages enemies on the way out and heals her on the way back.", "cooldown": 7, "cost": 50, "range": 880, "damage": "Magic"}, "w": {"key": "W", "name": "Fox-Fire", "description": "Ahri releases fox-fire that damages nearby enemies.", "cooldown": 7, "cost": 50, "range": 550, "damage": "Magic"}, "e": {"key": "E", "name": "Charm", "description": "Ahri blows a kiss that charms an enemy, slowing and making them vulnerable.", "cooldown": 12, "cost": 50, "range": 975, "damage": "Magic"}, "r": {"key": "R", "name": "Spirit Rush", "description": "Ahri dashes forward and releases fox-fire at nearby enemies.", "cooldown": 130, "cost": 100, "range": 550, "damage": "Magic"}}, "builds": {"Standard Build": {"name": "Standard Build", "items": [{"name": "Ludens Echo", "icon": "./images/item_ludens_echo.png", "icon_source": "official"}, {"name": "Rabadons Deathcap", "icon": "./images/item_rabadons_deathcap.png", "icon_source": "official"}, {"name": "Void Staff", "icon": "./images/item_void_staff.png", "icon_source": "official"}, {"name": "Zhonyas Hourglass", "icon": "./images/item_zhonyas_hourglass.png", "icon_source": "official"}], "sources": ["Manus"]}, "Support Build": {"name": "Support Build", "items": [{"name": "Hollow Radiance", "icon": "./images/item_hollow_radiance.png", "icon_source": "official"}, {"name": "Redemption", "icon": "./images/item_redemption.png", "icon_source": "official"}, {"name": "Locket of the Iron Solari", "icon": "./images/item_locket.png", "icon_source": "official"}], "sources": ["Manus"]}}, "combos": [{"name": "Kite and Burst", "description": "Combo para mantener distancia mientras se inflige da\u00f1o", "abilities": ["Q", "W", "R"], "difficulty": "Easy", "damageOutput": 600}, {"name": "Full Charm Combo", "description": "Combo de da\u00f1o completo despu\u00e9s de golpear Charm", "abilities": ["E", "Q", "W", "R"], "difficulty": "Medium", "damageOutput": 850}], "matchups": {"favorable": ["Annie", "Lux", "Lissandra"], "unfavorable": ["Fizz", "Kassadin", "Katarina"]}, "tips": ["Use your Q to farm from distance", "Charm is your main CC tool - use it wisely", "Your R can be used for both offense and escape", "Group with your team for maximum impact"], "source": "Manus Provider", "lastUpdated": "2025-12-26T01:24:30.493Z", "primarySource": "Manus", "sources": ["Manus"], "dataFromProviders": {"Manus": {"id": "ahri", "name": "Ahri", "title": "The Nine-Tailed Fox", "description": "A mage with powerful crowd control abilities and mobility", "roles": ["Mage", "Support"], "difficulty": "Medium", "stats": {"health": 526, "mana": 418, "armor": 18.72, "spellResist": 30, "attackDamage": 53.04, "attackSpeed": 0.668, "movementSpeed": 330, "attackRange": 550}, "abilities": {"p": {"key": "P", "name": "Essence Theft", "description": "Ahri gains a stack of Essence Theft whenever she hits an enemy with an ability. At 3 stacks, she consumes them to heal.", "cooldown": 0, "cost": 0}, "q": {"key": "Q", "name": "Orb of Deception", "description": "Ahri throws an orb that damages enemies on the way out and heals her on the way back.", "cooldown": 7, "cost": 50, "range": 880, "damage": "Magic"}, "w": {"key": "W", "name": "Fox-Fire", "description": "Ahri releases fox-fire that damages nearby enemies.", "cooldown": 7, "cost": 50, "range": 550, "damage": "Magic"}, "e": {"key": "E", "name": "Charm", "description": "Ahri blows a kiss that charms an enemy, slowing and making them vulnerable.", "cooldown": 12, "cost": 50, "range": 975, "damage": "Magic"}, "r": {"key": "R", "name": "Spirit Rush", "description": "Ahri dashes forward and releases fox-fire at nearby enemies.", "cooldown": 130, "cost": 100, "range": 550, "damage": "Magic"}}, "builds": {"standard": {"name": "Standard Build", "items": ["Ludens Echo", "Rabadons Deathcap", "Void Staff", "Zhonyas Hourglass"], "boots": "Sorcerers Shoes", "description": "High damage output with defensive utility"}, "support": {"name": "Support Build", "items": ["Hollow Radiance", "Redemption", "Locket of the Iron Solari"], "boots": "Plated Steelcaps", "description": "Focus on team utility and protection"}}, "combos": [{"name": "Kite and Burst", "description": "Combo para mantener distancia mientras se inflige da\u00f1o", "abilities": ["Q", "W", "R"], "difficulty": "Easy", "damageOutput": 600}, {"name": "Full Charm Combo", "description": "Combo de da\u00f1o completo despu\u00e9s de golpear Charm", "abilities": ["E", "Q", "W", "R"], "difficulty": "Medium", "damageOutput": 850}], "matchups": {"favorable": ["Annie", "Lux", "Lissandra"], "unfavorable": ["Fizz", "Kassadin", "Katarina"]}, "tips": ["Use your Q to farm from distance", "Charm is your main CC tool - use it wisely", "Your R can be used for both offense and escape", "Group with your team for maximum impact"], "source": "Manus Provider", "lastUpdated": "2025-12-26T01:24:30.493Z"}}, "metaStats": {"sources": ["Manus"], "aggregatedAt": "2025-12-26T01:25:26.277Z"}}, "leesin": {"id": "leesin", "name": "Lee Sin", "title": "The Blind Monk", "description": "A versatile jungler with high mobility and playmaking potential", "roles": ["Fighter", "Assassin", "Jungle"], "difficulty": "Hard", "stats": {"health": 570, "mana": 200, "armor": 24, "spellResist": 30, "attackDamage": 68, "attackSpeed": 0.681, "movementSpeed": 335, "attackRange": 125}, "abilities": {"p": {"key": "P", "name": "Flurry", "description": "Lee Sin gains attack speed after casting an ability", "cooldown": 0, "cost": 0}, "q": {"key": "Q", "name": "Sonic Wave / Resonance", "description": "Lee Sin throws a sonic wave that damages enemies. He can follow up to dash to them.", "cooldown": 8, "cost": 50, "range": 1100, "damage": "Physical"}, "w": {"key": "W", "name": "Safeguard / Iron Will", "description": "Lee Sin dashes to an ally or gains a shield", "cooldown": 8, "cost": 50, "range": 685, "damage": "None"}, "e": {"key": "E", "name": "Tempest / Cripple", "description": "Lee Sin sends out a shockwave that damages and slows enemies", "cooldown": 8, "cost": 50, "range": 325, "damage": "Physical"}, "r": {"key": "R", "name": "Dragons Rage", "description": "Lee Sin performs a powerful kick that damages and knocks back an enemy", "cooldown": 120, "cost": 0, "range": 375, "damage": "Physical"}}, "builds": {"Bruiser Build": {"name": "Bruiser Build", "items": [{"name": "Black Cleaver", "icon": null, "icon_source": "ai"}, {"name": "Trinity Force", "icon": null, "icon_source": "ai"}, {"name": "Steraks Gage", "icon": null, "icon_source": "ai"}], "sources": ["Manus"]}, "Assassin Build": {"name": "Assassin Build", "items": [{"name": "Duskblade of Draktharr", "icon": null, "icon_source": "ai"}, {"name": "Seryldas Grudge", "icon": null, "icon_source": "ai"}, {"name": "Marakana", "icon": null, "icon_source": "ai"}], "sources": ["Manus"]}}, "combos": [{"name": "Insec Kick", "description": "Combo cl\u00e1sico: Q, seguir, R para patear al enemigo hacia atr\u00e1s", "abilities": ["Q", "Q", "R"], "difficulty": "Extreme", "damageOutput": 500}], "matchups": {"favorable": ["Amumu", "Warwick", "Gragas"], "unfavorable": ["Nidalee", "Graves", "Kindred"]}, "tips": ["Master the Insec kick for playmaking", "Use Q to scout and engage", "Your W can save teammates - use it wisely", "Early ganks are crucial for snowballing"], "source": "Manus Provider", "lastUpdated": "2025-12-26T01:24:30.493Z", "primarySource": "Manus", "sources": ["Manus"], "dataFromProviders": {"Manus": {"id": "leesin", "name": "Lee Sin", "title": "The Blind Monk", "description": "A versatile jungler with high mobility and playmaking potential", "roles": ["Fighter", "Assassin", "Jungle"], "difficulty": "Hard", "stats": {"health": 570, "mana": 200, "armor": 24, "spellResist": 30, "attackDamage": 68, "attackSpeed": 0.681, "movementSpeed": 335, "attackRange": 125}, "abilities": {"p": {"key": "P", "name": "Flurry", "description": "Lee Sin gains attack speed after casting an ability", "cooldown": 0, "cost": 0}, "q": {"key": "Q", "name": "Sonic Wave / Resonance", "description": "Lee Sin throws a sonic wave that damages enemies. He can follow up to dash to them.", "cooldown": 8, "cost": 50, "range": 1100, "damage": "Physical"}, "w": {"key": "W", "name": "Safeguard / Iron Will", "description": "Lee Sin dashes to an ally or gains a shield", "cooldown": 8, "cost": 50, "range": 685, "damage": "None"}, "e": {"key": "E", "name": "Tempest / Cripple", "description": "Lee Sin sends out a shockwave that damages and slows enemies", "cooldown": 8, "cost": 50, "range": 325, "damage": "Physical"}, "r": {"key": "R", "name": "Dragons Rage", "description": "Lee Sin performs a powerful kick that damages and knocks back an enemy", "cooldown": 120, "cost": 0, "range": 375, "damage": "Physical"}}, "builds": {"standard": {"name": "Bruiser Build", "items": ["Black Cleaver", "Trinity Force", "Steraks Gage"], "boots": "Plated Steelcaps", "description": "Balance between damage and tankiness"}, "assassin": {"name": "Assassin Build", "items": ["Duskblade of Draktharr", "Seryldas Grudge", "Marakana"], "boots": "Ionian Boots of Lucidity", "description": "High burst damage for one-shot potential"}}, "combos": [{"name": "Insec Kick", "description": "Combo cl\u00e1sico: Q, seguir, R para patear al enemigo hacia atr\u00e1s", "abilities": ["Q", "Q", "R"], "difficulty": "Extreme", "damageOutput": 500}], "matchups": {"favorable": ["Amumu", "Warwick", "Gragas"], "unfavorable": ["Nidalee", "Graves", "Kindred"]}, "tips": ["Master the Insec kick for playmaking", "Use Q to scout and engage", "Your W can save teammates - use it wisely", "Early ganks are crucial for snowballing"], "source": "Manus Provider", "lastUpdated": "2025-12-26T01:24:30.493Z"}}, "metaStats": {"sources": ["Manus"], "aggregatedAt": "2025-12-26T01:25:26.277Z"}}, "nidalee": {"id": "nidalee", "name": "Nidalee", "title": "The Bestial Huntress", "description": "A jungler with powerful ganking potential and hunting mechanics", "roles": ["Assassin", "Mage", "Jungle"], "difficulty": "Hard", "stats": {"health": 570, "mana": 375, "armor": 21, "spellResist": 30, "attackDamage": 54, "attackSpeed": 0.625, "movementSpeed": 335, "attackRange": 525}, "abilities": {"p": {"key": "P", "name": "Prowl", "description": "Nidalee gains movement speed when moving through brush", "cooldown": 0, "cost": 0}, "q": {"key": "Q", "name": "Javelin Toss / Takedown", "description": "Nidalee throws a javelin that damages enemies. In cougar form, she pounces for melee damage.", "cooldown": 6, "cost": 50, "range": 1500, "damage": "Magic"}, "w": {"key": "W", "name": "Bushwhack / Pounce", "description": "Nidalee sets a trap that reveals enemies. In cougar form, she pounces to a location.", "cooldown": 10, "cost": 60, "range": 900, "damage": "Magic"}, "e": {"key": "E", "name": "Pounce / Swipe", "description": "Nidalee hunts enemies. In cougar form, she swipes nearby enemies.", "cooldown": 5, "cost": 50, "range": 750, "damage": "Magic"}, "r": {"key": "R", "name": "Aspect of the Cougar", "description": "Nidalee transforms into a cougar, gaining new abilities and movement speed.", "cooldown": 3, "cost": 0, "range": 0, "damage": "None"}}, "builds": {"AP Burst": {"name": "AP Burst", "items": [{"name": "Ludens Echo", "icon": "./images/item_ludens_echo.png", "icon_source": "official"}, {"name": "Rabadons Deathcap", "icon": "./images/item_rabadons_deathcap.png", "icon_source": "official"}, {"name": "Void Staff", "icon": "./images/item_void_staff.png", "icon_source": "official"}], "sources": ["Manus"]}}, "combos": [{"name": "Spear Hunt Combo", "description": "Lanzar lanza desde lejos y perseguir con forma de gato", "abilities": ["Q", "R", "Q", "E"], "difficulty": "Hard", "damageOutput": 950}], "matchups": {"favorable": ["Amumu", "Warwick", "Rammus"], "unfavorable": ["Lee Sin", "Graves", "KhaZix"]}, "tips": ["Land your spears for maximum damage", "Use cougar form for mobility and chase", "Trap placement is crucial for vision control", "Hunt isolated enemies for easy kills"], "source": "Manus Provider", "lastUpdated": "2025-12-26T01:24:30.493Z", "primarySource": "Manus", "sources": ["Manus"], "dataFromProviders": {"Manus": {"id": "nidalee", "name": "Nidalee", "title": "The Bestial Huntress", "description": "A jungler with powerful ganking potential and hunting mechanics", "roles": ["Assassin", "Mage", "Jungle"], "difficulty": "Hard", "stats": {"health": 570, "mana": 375, "armor": 21, "spellResist": 30, "attackDamage": 54, "attackSpeed": 0.625, "movementSpeed": 335, "attackRange": 525}, "abilities": {"p": {"key": "P", "name": "Prowl", "description": "Nidalee gains movement speed when moving through brush", "cooldown": 0, "cost": 0}, "q": {"key": "Q", "name": "Javelin Toss / Takedown", "description": "Nidalee throws a javelin that damages enemies. In cougar form, she pounces for melee damage.", "cooldown": 6, "cost": 50, "range": 1500, "damage": "Magic"}, "w": {"key": "W", "name": "Bushwhack / Pounce", "description": "Nidalee sets a trap that reveals enemies. In cougar form, she pounces to a location.", "cooldown": 10, "cost": 60, "range": 900, "damage": "Magic"}, "e": {"key": "E", "name": "Pounce / Swipe", "description": "Nidalee hunts enemies. In cougar form, she swipes nearby enemies.", "cooldown": 5, "cost": 50, "range": 750, "damage": "Magic"}, "r": {"key": "R", "name": "Aspect of the Cougar", "description": "Nidalee transforms into a cougar, gaining new abilities and movement speed.", "cooldown": 3, "cost": 0, "range": 0, "damage": "None"}}, "builds": {"standard": {"name": "AP Burst", "items": ["Ludens Echo", "Rabadons Deathcap", "Void Staff"], "boots": "Sorcerers Shoes", "description": "Maximum damage output with spear hunting"}}, "combos": [{"name": "Spear Hunt Combo", "description": "Lanzar lanza desde lejos y perseguir con forma de gato", "abilities": ["Q", "R", "Q", "E"], "difficulty": "Hard", "damageOutput": 950}], "matchups": {"favorable": ["Amumu", "Warwick", "Rammus"], "unfavorable": ["Lee Sin", "Graves", "KhaZix"]}, "tips": ["Land your spears for maximum damage", "Use cougar form for mobility and chase", "Trap placement is crucial for vision control", "Hunt isolated enemies for easy kills"], "source": "Manus Provider", "lastUpdated": "2025-12-26T01:24:30.493Z"}}, "metaStats": {"sources": ["Manus"], "aggregatedAt": "2025-12-26T01:25:26.277Z"}}, "vayne": {"id": "vayne", "name": "Vayne", "title": "The Night Hunter", "description": "A skilled marksman who hunts the supernatural creatures that plague the night.", "roles": ["ADC", "Marksman"], "difficulty": "Hard", "stats": {"health": 570, "mana": 300, "armor": 28, "magic_resistance": 30, "attack_damage": 63, "attack_speed": 0.625, "movement_speed": 330}, "abilities": {"p": {"name": "Night Hunter", "description": "Vayne gains 30 movement speed when moving toward an enemy champion.", "cooldown": 0, "cost": 0, "range": 0, "icon": "./images/vayne_night_hunter.png", "icon_source": "ai"}, "q": {"name": "Tumble", "description": "Vayne tumbles to a nearby location and gains increased attack damage.", "cooldown": 4, "cost": 30, "range": 300, "icon": "./images/vayne_tumble.png", "icon_source": "ai"}, "w": {"name": "Silver Bolts", "description": "Vayne's attacks apply Silver Bolts. After 3 attacks, the bolts detonate, dealing true damage.", "cooldown": 0, "cost": 0, "range": 550, "icon": "./images/vayne_silver_bolts.png", "icon_source": "ai"}, "e": {"name": "Condemn", "description": "Vayne fires a projectile that pushes an enemy back. If they hit a wall, they are stunned.", "cooldown": 12, "cost": 60, "range": 550, "icon": "./images/vayne_condemn.png", "icon_source": "ai"}, "r": {"name": "Final Hour", "description": "Vayne becomes invisible and gains increased movement speed and attack range.", "cooldown": 120, "cost": 100, "range": 0, "icon": "./images/vayne_final_hour.png", "icon_source": "ai"}}, "builds": {"standard": {"name": "Standard Build", "description": "High damage ADC build focused on attack speed and critical strike", "items": [{"name": "Infinity Edge", "icon": "./images/item_infinity_edge.png", "icon_source": "official"}, {"name": "Statikk Shiv", "icon": "./images/item_statikk_shiv.png", "icon_source": "official"}, {"name": "Rapid Firecannon", "icon": "./images/item_rapid_firecannon.png", "icon_source": "official"}, {"name": "The Bloodthirster", "icon": "./images/item_bloodthirster.png", "icon_source": "official"}]}, "defensive": {"name": "Defensive Build", "description": "Balanced build with defensive items for survivability", "items": [{"name": "Manamune", "icon": "./images/item_manamune.png", "icon_source": "official"}, {"name": "Mercurial Scimitar", "icon": "./images/item_mercurial_scimitar.png", "icon_source": "official"}, {"name": "Guardian Angel", "icon": "./images/item_guardian_angel.png", "icon_source": "official"}]}}, "combos": [{"name": "Condemn into Tumble", "description": "Use Condemn to stun enemy against wall, then Tumble away", "difficulty": "Medium", "damage": 400, "sequence": ["E", "Q"], "image": "./images/combo_vayne_condemn_tumble.png", "image_source": "ai"}, {"name": "Silver Bolts Proc", "description": "Attack 3 times to proc Silver Bolts true damage, then Tumble away", "difficulty": "Easy", "damage": 600, "sequence": ["W", "W", "W", "Q"], "image": "./images/combo_vayne_silver_bolts.png", "image_source": "ai"}, {"name": "Final Hour Burst", "description": "Activate Final Hour, Tumble in, attack 3 times for Silver Bolts, then Condemn", "difficulty": "Hard", "damage": 1200, "sequence": ["R", "Q", "W", "W", "W", "E"], "image": "./images/combo_vayne_final_hour.png", "image_source": "ai"}], "matchups": {"favorable": [{"champion": "Ashe", "reason": "Vayne's mobility allows her to dodge Ashe's arrows"}, {"champion": "Caitlyn", "reason": "Vayne can Condemn Caitlyn away from her traps"}, {"champion": "Jinx", "reason": "Vayne's Tumble can dodge Jinx's rockets"}], "unfavorable": [{"champion": "Draven", "reason": "Draven's early damage is too high for Vayne"}, {"champion": "Lucian", "reason": "Lucian's mobility and damage outpace Vayne early"}, {"champion": "Miss Fortune", "reason": "Miss Fortune's AOE damage is hard to avoid"}]}, "sources": ["Manus"]}};
+        
+        function renderChampions(filter = {}) {
+            const container = document.getElementById('champions');
+            container.innerHTML = '';
             
-            if (!champions || champions.length === 0) {
-                container.innerHTML = '<div class="no-results">No se encontraron campeones</div>';
-                return;
+            let filtered = Object.values(CHAMPIONS_DATA);
+            
+            if (filter.search) {
+                filtered = filtered.filter(c => 
+                    c.name.toLowerCase().includes(filter.search.toLowerCase())
+                );
             }
-
-            container.innerHTML = champions.map(champion => `
-                <a href="champion-detail.html?id=${champion.id}" style="text-decoration: none; color: inherit;">
-                    <div class="champion-card">
-                        <div class="champion-header">
-                            <div class="champion-name">${champion.name}</div>
-                            <div class="champion-title">${champion.title}</div>
-                            <div class="champion-roles">
-                                ${(champion.roles || []).map(role => 
-                                    `<div class="role-badge">${role}</div>`
-                                ).join('')}
-                            </div>
-                        </div>
-                        <div class="champion-body">
-                            <div class="combo-count">
-                                <strong>${champion.combos?.length || 0}</strong> combos disponibles
-                            </div>
-                            <div class="combo-list">
-                                ${(champion.combos || []).slice(0, 3).map(combo => `
-                                    <div class="combo-item">
-                                        <div class="combo-name">${combo.name}</div>
-                                        <div class="combo-meta">
-                                            <span class="difficulty-badge difficulty-${combo.effectiveness?.difficulty || 'medium'}">
-                                                ${combo.effectiveness?.difficulty || 'N/A'}
-                                            </span>
-                                            <span>⚡ ${combo.effectiveness?.damageOutput || 0}</span>
-                                        </div>
-                                    </div>
-                                `).join('')}
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            `).join('');
-        }
-
-        function filterChampions() {
-            const search = document.getElementById('searchInput').value.toLowerCase();
-            const difficulty = document.getElementById('difficultyFilter').value;
-            const role = document.getElementById('roleFilter').value;
-
-            let filtered = DATA.champions.filter(champion => {
-                const matchSearch = champion.name.toLowerCase().includes(search);
-                const matchDifficulty = !difficulty || 
-                    (champion.combos || []).some(c => c.effectiveness?.difficulty === difficulty);
-                const matchRole = !role || (champion.roles || []).includes(role);
-                
-                return matchSearch && matchDifficulty && matchRole;
-            });
-
-            renderChampions(filtered);
-        }
-
-        function init() {
-            console.log('✓ Inicializando con', DATA.champions.length, 'campeones');
             
-            // Actualizar stats
-            document.getElementById('totalChampions').textContent = DATA.statistics.totalChampions || 0;
-            document.getElementById('totalCombos').textContent = DATA.statistics.totalCombos || 0;
-            document.getElementById('avgComboScore').textContent = (Number(DATA.statistics.averageComboScore) || 0).toFixed(2);
-            document.getElementById('championsWithCombos').textContent = DATA.statistics.championsWithCombos || 0;
-
-            // Renderizar campeones
-            renderChampions(DATA.champions);
-
-            // Event listeners
-            document.getElementById('searchInput').addEventListener('input', filterChampions);
-            document.getElementById('difficultyFilter').addEventListener('change', filterChampions);
-            document.getElementById('roleFilter').addEventListener('change', filterChampions);
-        }
-
-        // Cargar datos y ejecutar
-        fetch('./data/champions.json')
-            .then(r => r.json())
-            .then(d => { DATA.champions = d; })
-            .then(() => fetch('./data/combos.json'))
-            .then(r => r.json())
-            .then(d => { DATA.combos = d; })
-            .then(() => fetch('./data/statistics.json'))
-            .then(r => r.json())
-            .then(d => { DATA.statistics = d; init(); })
-            .catch(err => {
-                console.error('Error:', err);
-                document.getElementById('championsContainer').innerHTML = 
-                    '<div class="no-results">✓ Datos listos pero error al renderizar. Intenta recargar.</div>';
+            if (filter.difficulty) {
+                filtered = filtered.filter(c => c.difficulty === filter.difficulty);
+            }
+            
+            filtered.forEach(champion => {
+                const combosCount = champion.combos ? champion.combos.length : 0;
+                const card = document.createElement('a');
+                card.href = `champion-detail.html?id=${champion.id}`;
+                card.className = 'champion-card';
+                card.innerHTML = `
+                    <h3>${champion.name}</h3>
+                    <div class="title">${champion.title}</div>
+                    <div class="roles">${champion.roles.join(', ')}</div>
+                    <div class="difficulty">Dificultad: ${champion.difficulty}</div>
+                    <div class="combos">Combos: ${combosCount}</div>
+                `;
+                container.appendChild(card);
             });
+        }
+        
+        function updateStats() {
+            const stats = document.getElementById('stats');
+            const champions = Object.values(CHAMPIONS_DATA);
+            const totalCombos = champions.reduce((sum, c) => sum + (c.combos ? c.combos.length : 0), 0);
+            
+            stats.innerHTML = `
+                <div class="stat-card">
+                    <h3>Campeones</h3>
+                    <p>${champions.length}</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Combos Analizados</h3>
+                    <p>${totalCombos}</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Fuentes de Datos</h3>
+                    <p>Multi-Proveedor</p>
+                </div>
+            `;
+        }
+        
+        document.getElementById('search').addEventListener('input', (e) => {
+            renderChampions({ search: e.target.value, difficulty: document.getElementById('difficulty').value });
+        });
+        
+        document.getElementById('difficulty').addEventListener('change', (e) => {
+            renderChampions({ search: document.getElementById('search').value, difficulty: e.target.value });
+        });
+        
+        updateStats();
+        renderChampions();
     </script>
 </body>
 </html>

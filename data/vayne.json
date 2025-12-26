@@ -1,0 +1,103 @@
+{
+  "id": "vayne",
+  "name": "Vayne",
+  "title": "The Night Hunter",
+  "description": "A skilled marksman who hunts the supernatural creatures that plague the night.",
+  "roles": ["ADC", "Marksman"],
+  "difficulty": "Hard",
+  "stats": {
+    "health": 570,
+    "mana": 300,
+    "armor": 28,
+    "magic_resistance": 30,
+    "attack_damage": 63,
+    "attack_speed": 0.625,
+    "movement_speed": 330
+  },
+  "abilities": {
+    "p": {
+      "name": "Night Hunter",
+      "description": "Vayne gains 30 movement speed when moving toward an enemy champion.",
+      "cooldown": 0,
+      "cost": 0,
+      "range": 0,
+      "icon": "./images/vayne_night_hunter.png",
+      "icon_source": "ai"
+    },
+    "q": {
+      "name": "Tumble",
+      "description": "Vayne tumbles to a nearby location and gains increased attack damage.",
+      "cooldown": 4,
+      "cost": 30,
+      "range": 300,
+      "icon": "./images/vayne_tumble.png",
+      "icon_source": "ai"
+    },
+    "w": {
+      "name": "Silver Bolts",
+      "description": "Vayne's attacks apply Silver Bolts. After 3 attacks, the bolts detonate, dealing true damage.",
+      "cooldown": 0,
+      "cost": 0,
+      "range": 550,
+      "icon": "./images/vayne_silver_bolts.png",
+      "icon_source": "ai"
+    },
+    "e": {
+      "name": "Condemn",
+      "description": "Vayne fires a projectile that pushes an enemy back. If they hit a wall, they are stunned.",
+      "cooldown": 12,
+      "cost": 60,
+      "range": 550,
+      "icon": "./images/vayne_condemn.png",
+      "icon_source": "ai"
+    },
+    "r": {
+      "name": "Final Hour",
+      "description": "Vayne becomes invisible and gains increased movement speed and attack range.",
+      "cooldown": 120,
+      "cost": 100,
+      "range": 0,
+      "icon": "./images/vayne_final_hour.png",
+      "icon_source": "ai"
+    }
+  },
+  "builds": {
+    "standard": {
+      "name": "Standard Build",
+      "description": "High damage ADC build focused on attack speed and critical strike",
+      "items": [
+        {"name": "Infinity Edge", "icon": "./images/item_infinity_edge.png", "icon_source": "official"},
+        {"name": "Statikk Shiv", "icon": "./images/item_statikk_shiv.png", "icon_source": "official"},
+        {"name": "Rapid Firecannon", "icon": "./images/item_rapid_firecannon.png", "icon_source": "official"},
+        {"name": "The Bloodthirster", "icon": "./images/item_bloodthirster.png", "icon_source": "official"}
+      ]
+    },
+    "defensive": {
+      "name": "Defensive Build",
+      "description": "Balanced build with defensive items for survivability",
+      "items": [
+        {"name": "Manamune", "icon": "./images/item_manamune.png", "icon_source": "official"},
+        {"name": "Mercurial Scimitar", "icon": "./images/item_mercurial_scimitar.png", "icon_source": "official"},
+        {"name": "Guardian Angel", "icon": "./images/item_guardian_angel.png", "icon_source": "official"}
+      ]
+    }
+  },
+  "combos": [
+    {"name": "Condemn into Tumble", "description": "Use Condemn to stun enemy against wall, then Tumble away", "difficulty": "Medium", "damage": 400, "sequence": ["E", "Q"], "image": "./images/combo_vayne_condemn_tumble.png", "image_source": "ai"},
+    {"name": "Silver Bolts Proc", "description": "Attack 3 times to proc Silver Bolts true damage, then Tumble away", "difficulty": "Easy", "damage": 600, "sequence": ["W", "W", "W", "Q"], "image": "./images/combo_vayne_silver_bolts.png", "image_source": "ai"},
+    {"name": "Final Hour Burst", "description": "Activate Final Hour, Tumble in, attack 3 times for Silver Bolts, then Condemn", "difficulty": "Hard", "damage": 1200, "sequence": ["R", "Q", "W", "W", "W", "E"], "image": "./images/combo_vayne_final_hour.png", "image_source": "ai"}
+  ],
+  "matchups": {
+    "favorable": [
+      {"champion": "Ashe", "reason": "Vayne's mobility allows her to dodge Ashe's arrows"},
+      {"champion": "Caitlyn", "reason": "Vayne can Condemn Caitlyn away from her traps"},
+      {"champion": "Jinx", "reason": "Vayne's Tumble can dodge Jinx's rockets"}
+    ],
+    "unfavorable": [
+      {"champion": "Draven", "reason": "Draven's early damage is too high for Vayne"},
+      {"champion": "Lucian", "reason": "Lucian's mobility and damage outpace Vayne early"},
+      {"champion": "Miss Fortune", "reason": "Miss Fortune's AOE damage is hard to avoid"}
+    ]
+  },
+  "sources": ["Manus"]
+}
